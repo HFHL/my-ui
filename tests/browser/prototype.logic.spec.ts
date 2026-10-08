@@ -46,9 +46,9 @@ test('P001 收起展开与新建项目，以及收藏库原始 C008 不受影响
 
 test('P001 原型入口与小屏收起操作', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: /^项目原型\s+1$/ }).click();
+  await page.getByRole('button', { name: /^项目原型\s+2$/ }).click();
   await expect(page.getByRole('heading', { name: 'P001', exact: true })).toBeAttached();
-  await expect(page.getByRole('link', { name: '打开原型' })).toHaveAttribute('href', '/?preview=prototype&id=P001');
+  await expect(page.getByRole('link', { name: '打开原型' }).filter({ has: page.locator('svg') }).first()).toHaveAttribute('href', '/?preview=prototype&id=P001');
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/?preview=prototype&id=P001');
   await page.getByRole('button', { name: '收起侧栏' }).click();

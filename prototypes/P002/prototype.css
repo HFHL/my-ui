@@ -1,0 +1,22 @@
+/* Source styles are kept in assets/source.css. Only adapters live here. */
+.p002-root { min-height: 100dvh; }
+.p002-root .line-chart > svg { display: block; width: 100%; height: 220px; }
+.p002-root [data-slot="sidebar-menu-item"] { cursor: pointer; }
+.p002-root [data-slot="sidebar-menu-item"]:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.p002-overlay { position: fixed; inset: 0; background: #0005; z-index: 100; }
+.p002-dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(460px, calc(100% - 32px)); max-height: calc(100dvh - 40px); overflow: auto; z-index: 101; padding: 24px; background: var(--surface); color: var(--foreground); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 20px 70px #0002; }
+.p002-dialog h2 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+.p002-dialog > p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+.p002-dialog form { display: grid; gap: 14px; margin: 22px 0; }
+.p002-dialog form label { display: grid; gap: 6px; font-size: 13px; }
+.p002-dialog input:not([type="checkbox"]), .p002-dialog select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--background); color: var(--foreground); }
+.p002-holdings { display: grid; gap: 12px; padding: 0; list-style: none; margin: 24px 0; font-size: 14px; }
+.p002-demo-address, .p002-preference { font-size: 13px; color: var(--muted); }
+.p002-preference { display: flex; gap: 8px; margin: 20px 0; }
+@media (max-width: 768px) {
+  .p002-root .sidebar__offcanvas-wrapper { display: block; width: 0; }
+  .p002-root .sidebar { display: flex; position: fixed; z-index: 30; left: 0; top: 0; visibility: hidden; translate: -100% 0; }
+  .p002-root [data-mobile-open="true"] .sidebar { visibility: visible; translate: 0 0; box-shadow: 8px 0 30px #0002; }
+  .p002-root [data-slot="sidebar-trigger"] { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .p002-root *, .p002-dialog * { transition: none !important; animation: none !important; } }

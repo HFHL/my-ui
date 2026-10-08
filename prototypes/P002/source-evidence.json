@@ -1,0 +1,25 @@
+{
+  "target": "https://template-4.heroui.pro/",
+  "skill_installed": "/Users/feiyuzi/.codex/skills/web-shader-extractor/SKILL.md",
+  "surface": {
+    "truth": "SOURCE",
+    "canvas_count": 0,
+    "chart_backend": "SVG/Recharts",
+    "evidence": "assets/dashboard.html and six assets/*.svg"
+  },
+  "shader_skill_scope": "Not applicable to ordinary DOM/CSS/SVG dashboards; no shader replay claimed",
+  "baseline": {
+    "truth": "SOURCE",
+    "markup": "assets/dashboard.html",
+    "stylesheet": "assets/source.css",
+    "period_states": "assets/ranges.json",
+    "font": "Source CSS system UI stack; no remote font asset"
+  },
+  "local_adapters": {
+    "truth": "PARTIAL",
+    "behavior": "Period switching, sidebar toggle, date reverse-sort, section focus and local demo dialogs",
+    "deviations": "Source Swap and See all holdings controls caused no state change; local dialogs added for prototype use. Entire source routes are not cloned. SVG range snapshots do not reproduce live chart hover tooltips or animation."
+  },
+  "visual_verification": "Not performed per explicit user preference; no screenshots requested or read",
+  "terms": "Source site assets/styles retain original terms; installed skill MIT does not grant HeroUI Pro template rights"
+}

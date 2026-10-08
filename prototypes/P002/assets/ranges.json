@@ -1,0 +1,32 @@
+{
+  "1D": {
+    "summary": "PortfolioSample holdings and historical performanceTotal balance$5,427.48 +2.82% 1D1D1W1M3M1YAll",
+    "width": "568",
+    "height": "220"
+  },
+  "1W": {
+    "summary": "PortfolioSample holdings and historical performanceTotal balance$5,427.48 +5.17% 1W1D1W1M3M1YAll",
+    "width": "568",
+    "height": "220"
+  },
+  "1M": {
+    "summary": "PortfolioSample holdings and historical performanceTotal balance$5,427.48 +8.16% 1M1D1W1M3M1YAll",
+    "width": "568",
+    "height": "220"
+  },
+  "3M": {
+    "summary": "PortfolioSample holdings and historical performanceTotal balance$5,427.48 +19.25% 3M1D1W1M3M1YAll",
+    "width": "568",
+    "height": "220"
+  },
+  "1Y": {
+    "summary": "PortfolioSample holdings and historical performanceTotal balance$5,427.48 +74.67% 1Y1D1W1M3M1YAll",
+    "width": "568",
+    "height": "220"
+  },
+  "All": {
+    "summary": "PortfolioSample holdings and historical performanceTotal balance$5,427.48 +785.32% All1D1W1M3M1YAll",
+    "width": "568",
+    "height": "220"
+  }
+}

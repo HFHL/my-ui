@@ -1,0 +1,9 @@
+{
+  "slug": "P002",
+  "name": "P002",
+  "description": "HeroUI Finances 仪表盘首页复刻：资产概览、六周期图表、持仓与交易活动。",
+  "createdAt": "2026-10-08",
+  "components": [],
+  "source": "https://template-4.heroui.pro/",
+  "implementation": "Public source DOM/CSS and captured SVG period states; local-only interaction adapters"
+}
