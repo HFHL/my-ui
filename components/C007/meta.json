@@ -1,0 +1,15 @@
+{
+  "id": "C007",
+  "name": "Upload dropzone",
+  "category": "表单",
+  "tags": [
+    "上传",
+    "拖拽",
+    "动画",
+    "模拟交互"
+  ],
+  "description": "Bencho 拖拽上传动效：内置图片模拟上传，超大视频触发拒绝反馈；不读取或发送真实文件。",
+  "createdAt": "2026-10-08",
+  "source": "Bencho · https://bencho.dev · 用户提供源码",
+  "license": "MIT · https://bencho.dev/licence"
+}

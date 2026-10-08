@@ -7,14 +7,14 @@
 ```text
 components/
   ids.json              # 已分配及注销编号，不复用
-  C001/
+  C007/
     meta.json           # 编号、分类、标签、说明、来源、许可
     index.tsx           # 可复用实现
     styles.module.css   # 局部样式
     Preview.tsx         # 展示与交互示例
 catalog/                # 元数据索引、搜索、筛选、收藏、详情
 prototypes/
-  studio-overview/
+  项目名/
     meta.json           # 原型及组件来源记录
     App.tsx             # 原型组装入口
     components/         # 收藏组件的独立副本
@@ -58,12 +58,21 @@ npm run component:new -- "日期选择器" "表单"
 ## 📝 创建项目原型
 
 ```sh
-npm run prototype:new -- my-project C001 C002 C005
+npm run prototype:new -- my-project C007
 ```
 
 项目名使用小写字母、数字和连字符。命令将整个组件目录复制到 `prototypes/my-project/components/`，记录来源编号，并生成初始 `App.tsx`。在该入口继续组装；复制后的组件修改可在原型元数据中记录 `modified: true` 与说明。
 
-展示页自动发现原型入口。可以在“项目原型”中打开，也可使用同源地址 `/?preview=prototype&id=my-project`。示例 `studio-overview` 已展示导航、指标、周期切换和按钮组装。原型目前共享基础运行环境，尚未生成独立部署工程。
+展示页自动发现原型入口。可以在“项目原型”中打开，也可使用同源地址 `/?preview=prototype&id=my-project`。原型目前共享基础运行环境，尚未生成独立部署工程；初始示例原型已按用户要求移除。
+
+## 📝 当前组件
+
+- `C007 · Upload dropzone`：Bencho 的上传拖拽动画，分类为“表单”，标签包括上传、拖拽、动画和模拟交互。
+- 实现在 `components/C007/UploadDropzone.tsx`，支持命名导出与默认导出；`index.tsx` 提供统一入口。
+- 原始注释与模拟上传行为保留；内置 `mood.png` 模拟上传，`demo.mp4` 超过 5 MB 时被拒绝，不读取桌面文件或发送文件。
+- 使用 `framer-motion` 与 `lucide-react`；CSS Modules 隔离样式，设计变量限定在组件根节点，信号色与成功色沿用项目绿色强调色。
+- 许可为 [Bencho MIT License](https://bencho.dev/licence)，版权及完整许可保存在 `components/C007/LICENSE`；复制组件时保留该文件。
+- `C001–C006` 已注销，不再展示、不复用；历史实现可在 Git 历史中查看。
 
 ## 📝 验证
 
@@ -108,3 +117,4 @@ tailscale serve --https=9446 off
 
 - 2026-10-08：搭建文件驱动的收藏库基底、六个独立原创示例、自动编号与原型复制命令、统一浏览页面及工作室概览原型；私有服务和浏览器验收结果以本机登记为准。
 - 📝 2026-10-08 验收：构建、四项文件流程测试与四项浏览器测试通过；私有 HTTPS 下重复的浏览器检查通过且未忽略证书错误。本机默认 DNS 无法解析自身 Tailscale 域名，HTTPS 验证使用显式 DNS 映射；未进行第二设备验收。现有 Serve 入口未变，未启用 Funnel。
+- 📝 2026-10-08 组件替换：按用户要求删除六个初始组件与示例原型，注销原编号，接入用户提供的 Bencho Upload dropzone，编号为 `C007`；保留原注释并补齐许可，新增组件交互验收。

@@ -1,5 +1,0 @@
-.field { display: flex; gap: 10px; align-items: center; border: 1px solid #dce2df; border-radius: 9px; padding: 11px 14px; background: white; }
-.field:focus-within { outline: 2px solid #146b57; outline-offset: 2px; }
-.symbol { color: #6b756f; font-size: 22px; line-height: 1; }
-.input { width: 100%; min-width: 0; border: 0; background: transparent; color: #26362e; font: inherit; font-size: 14px; outline: none; }
-.input::placeholder { color: #728078; }

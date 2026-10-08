@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { mkdtemp, mkdir, cp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -10,7 +10,17 @@ import { componentId, validateLibrary } from '../scripts/library.mjs';
 const repo = fileURLToPath(new URL('../', import.meta.url));
 async function fixture(fn) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'my-ui-test-'));
-  try { await cp(path.join(repo, 'components'), path.join(root, 'components'), { recursive: true }); await fn(root); }
+  try {
+    for (const id of ['C001', 'C002']) {
+      const dir = path.join(root, 'components', id);
+      await mkdir(dir, { recursive: true });
+      await writeFile(path.join(dir, 'index.tsx'), 'export default function Fixture() { return <div>fixture</div>; }');
+      await writeFile(path.join(dir, 'Preview.tsx'), "export { default } from './index';");
+      await writeFile(path.join(dir, 'meta.json'), JSON.stringify({ id, name: id, category: '测试', tags: [], description: '测试夹具', createdAt: '2026-10-08', source: '测试', license: '测试' }));
+    }
+    await writeFile(path.join(root, 'components/ids.json'), JSON.stringify({ allocated: ['C001', 'C002'], retired: [] }));
+    await fn(root);
+  }
   finally { await rm(root, { recursive: true, force: true }); }
 }
 const run = (file, args, root) => spawnSync(process.execPath, [path.join(repo, 'scripts', file), ...args], { cwd: root, encoding: 'utf8' });
