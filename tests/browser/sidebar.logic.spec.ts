@@ -25,7 +25,7 @@ test('C008 导航选择、搜索过滤、主题与退出回调', async ({ page }
   expect(errors).toEqual([]);
 });
 
-test('收起与搜索展开、C007/C008 同时入库', async ({ page }) => {
+test('收起与搜索展开、收藏库保持独立组件索引', async ({ page }) => {
   await page.goto('/?preview=component&id=C008');
   const sidebar = page.getByRole('complementary', { name: 'Dashboard sidebar navigation' });
   await page.getByRole('button', { name: '收起侧栏' }).click();
@@ -34,7 +34,7 @@ test('收起与搜索展开、C007/C008 同时入库', async ({ page }) => {
   await expect(sidebar).toHaveAttribute('data-collapsed', 'false');
   await expect(page.getByRole('searchbox', { name: 'Search navigation' })).toBeFocused();
   await page.goto('/');
-  await expect(page.locator('.component-card')).toHaveCount(2);
+  await expect(page.locator('.component-card')).toHaveCount(3);
   await page.getByRole('textbox', { name: '搜索组件' }).fill('C008');
   await expect(page.locator('.component-card')).toHaveCount(1);
   await expect(page.getByRole('button', { name: 'Dashboard Sidebar Navigation', exact: true })).toBeAttached();

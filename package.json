@@ -16,6 +16,7 @@
   "author": "",
   "type": "module",
   "dependencies": {
+    "@fontsource/inter": "^5.3.0",
     "@fontsource/open-sans": "^5.3.0",
     "@radix-ui/react-dialog": "^1.2.0",
     "@tabler/icons-react": "^3.49.0",

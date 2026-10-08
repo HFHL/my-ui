@@ -1,0 +1,11 @@
+.navbar { box-sizing: border-box; display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 100px; background: #949494; width: max-content; max-width: 100%; overflow-x: auto; font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; }
+.item, .contact { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; padding: 13px 12px; border: 0; border-radius: 100px; font: inherit; font-weight: 500; font-size: 14px; line-height: normal; text-box-trim: trim-both; text-box-edge: cap alphabetic; white-space: nowrap; cursor: pointer; }
+.item { background: #949494; color: #1a1a1a; }
+.item:hover:not([aria-current='page']):not(:disabled) { background: #b2b2b4; color: #4a4a4a; }
+.item[aria-current='page'] { background: #dddee2; color: #202020; }
+.contact { background: #1a1a1a; color: white; }
+.contact:hover { background: #2a29e4; }
+.item:disabled { opacity: .45; cursor: not-allowed; }
+.item:focus-visible, .contact:focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+.preview { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; width: min(100%, 640px); min-height: 220px; padding: 24px; background: #1a1a1a; border-radius: 12px; }
+.feedback { margin: 0; min-height: 18px; color: #dddee2; font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; }

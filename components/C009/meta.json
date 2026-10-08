@@ -1,0 +1,16 @@
+{
+  "id": "C009",
+  "name": "Modern Navbar",
+  "category": "导航",
+  "tags": [
+    "导航栏",
+    "胶囊",
+    "选中状态",
+    "交互"
+  ],
+  "description": "Figma Modern Navbar：胶囊导航、选中与悬停状态、Contact 操作，支持导航回调。",
+  "createdAt": "2026-10-08",
+  "source": "Figma Community · Modern Navbar · plzUxG4jo2EYxXhOyHDAYl · 1:14",
+  "license": "原设计授权需遵循 Figma Community 来源条款；未提供独立 MIT 许可",
+  "figmaUrl": "https://www.figma.com/design/plzUxG4jo2EYxXhOyHDAYl/Modern-Navbar--Community-?node-id=1-14"
+}

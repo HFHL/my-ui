@@ -81,6 +81,7 @@ npm run prototype:new -- P002 C008
 - `C001–C006` 已注销，不再展示、不复用；历史实现可在 Git 历史中查看。
 - 📝 `C008 · Dashboard Sidebar Navigation`：来自用户指定的 Figma 节点 `429:783`，提供深浅主题、展开收起、五项导航、菜单搜索及退出回调。节点图标、头像均保存在组件自身 `assets/` 中，Open Sans 通过基础依赖在本地加载。
 - 📝 `C008` 导出 `SidebarNavigation`。支持 `theme` / `defaultTheme`、`collapsed` / `defaultCollapsed`、`activeId` / `defaultActiveId`，以及 `items`、`profile`、`height` 和 `onThemeChange`、`onCollapsedChange`、`onNavigate`、`onSearch`、`onLogout`。导航和退出的业务行为由消费项目通过回调实现；原设计与资产许可按来源条款处理，不沿用 `C007` 的 MIT 声明。
+- 📝 `C009 · Modern Navbar`：来自 Figma 节点 `1:14`，提供 Home、Work、Awards、Team、Prices 胶囊导航及 Contact 按钮，默认选中 Awards。通过 `items`、`activeId` / `defaultActiveId`、`onNavigate`、`contactLabel`、`onContact` 配置内容和业务回调；使用 CSS Modules 和本地 Inter 500 字体。深色展示背景仅位于 `Preview.tsx`，不会强制消费项目背景。
 
 ## 📝 验证
 
@@ -134,3 +135,4 @@ tailscale serve --https=9446 off
 - 📝 2026-10-08 组件替换：按用户要求删除六个初始组件与示例原型，注销原编号，接入用户提供的 Bencho Upload dropzone，编号为 `C007`；保留原注释并补齐许可，新增组件交互验收。
 - 📝 2026-10-08 Figma 接入：新增 `C008` Sidebar Navigation，保留 `C007`；节点上下文排除截图，原始资产本地化，使用局部 CSS Modules 和回调实现交互。构建、六项逻辑测试和两项无截图 DOM 测试通过；私有 HTTPS 入口本机响应 200，第二设备尚未验收。
 - 📝 2026-10-08 原型创建：新增编号原型 P001，以 C008 副本实现默认浅色的左右工作台，右侧留空；构建、七项逻辑测试及五项无截图 DOM 测试通过，私有 HTTPS 本机响应 200，第二设备尚未验收。
+- 📝 2026-10-08 组件新增：接入 C009 Modern Navbar，保留现有组件及 P001；读取 Figma 结构与样式时排除截图，按代码和事件逻辑验收。

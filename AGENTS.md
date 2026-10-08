@@ -69,3 +69,4 @@
 - Figma 接入读取结构、样式、代码与必要资产信息，并明确排除截图。只有用户后续明确要求视觉检查时才执行视觉验收。
 - 无截图的 DOM / 事件测试可用于验证交互逻辑；浏览器测试默认排除历史截图测试，视觉测试只能在用户明确要求后通过 `UI_VISUAL_CHECK=1` 开启。
 - 📝 2026-10-08：新增 `C008` Dashboard Sidebar Navigation，来源 Figma 文件 `5U6RM6E1GUSSUOmrYjh8rl`、节点 `429:783`。保留 `C007`；Figma 组件资产按来源条款记录，不声明为 Bencho 的 MIT 许可。
+- 📝 2026-10-08：新增 `C009` Modern Navbar，来源 Figma 文件 `plzUxG4jo2EYxXhOyHDAYl`、节点 `1:14`。胶囊导航默认选中 Awards，提供导航和 Contact 回调；局部样式及本地 Inter 字体，不修改 P001。
