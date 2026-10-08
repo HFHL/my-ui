@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import type { CSSProperties } from 'react';
-import { IconLayoutSidebarLeftCollapse, IconLayoutSidebarLeftExpand } from '@tabler/icons-react';
+import { IconLayoutSidebarLeftCollapse, IconLayoutSidebarLeftExpand, IconPlus } from '@tabler/icons-react';
 import '@fontsource/open-sans/400.css';
 import '@fontsource/open-sans/700.css';
 import { assets, menuIcons } from './assets';
-import { defaultItems, filterNavigation } from './model';
+import { defaultItems } from './model';
 import type { SidebarItem, SidebarTheme } from './model';
 import styles from './styles.module.css';
 
@@ -20,7 +20,7 @@ export interface SidebarNavigationProps {
   defaultActiveId?: string;
   items?: SidebarItem[];
   onNavigate?: (item: SidebarItem) => void;
-  onSearch?: (query: string) => void;
+  onCreateProject?: () => void;
   onLogout?: () => void;
   profile?: { name: string; email: string; avatar?: string };
   height?: CSSProperties['height'];
@@ -35,35 +35,22 @@ export function SidebarNavigation({
   theme: controlledTheme, defaultTheme = 'dark', onThemeChange,
   collapsed: controlledCollapsed, defaultCollapsed = false, onCollapsedChange, showCollapseControl = false,
   activeId: controlledActive, defaultActiveId, items = defaultItems,
-  onNavigate, onSearch, onLogout,
+  onNavigate, onCreateProject, onLogout,
   profile = { name: 'Duck UI', email: 'Duckui@demo.com' },
   height = 1024, className = '',
 }: SidebarNavigationProps) {
   const [localTheme, setLocalTheme] = useState(defaultTheme);
   const [localCollapsed, setLocalCollapsed] = useState(defaultCollapsed);
   const [localActive, setLocalActive] = useState(defaultActiveId);
-  const [query, setQuery] = useState('');
-  const searchRef = useRef<HTMLInputElement>(null);
-  const focusSearch = useRef(false);
   const theme = controlledTheme ?? localTheme;
   const collapsed = controlledCollapsed ?? localCollapsed;
   const activeId = controlledActive ?? localActive;
   const isLight = theme === 'light';
-  const visibleItems = filterNavigation(items, query);
-
-  useEffect(() => {
-    if (!collapsed && focusSearch.current) { searchRef.current?.focus(); focusSearch.current = false; }
-  }, [collapsed]);
 
   const toggleTheme = () => {
     const next = isLight ? 'dark' : 'light';
     if (controlledTheme === undefined) setLocalTheme(next);
     onThemeChange?.(next);
-  };
-  const openSearch = () => {
-    focusSearch.current = true;
-    if (controlledCollapsed === undefined) setLocalCollapsed(false);
-    onCollapsedChange?.(false);
   };
   const toggleCollapsed = () => {
     if (controlledCollapsed === undefined) setLocalCollapsed(!collapsed);
@@ -77,11 +64,13 @@ export function SidebarNavigation({
         {!collapsed && <div className={styles.profileText}><strong>{profile.name}</strong><span>{profile.email}</span></div>}
         {showCollapseControl && <button className={styles.collapseButton} type="button" aria-label={collapsed ? '展开侧栏' : '收起侧栏'} title={collapsed ? '展开侧栏' : '收起侧栏'} aria-expanded={!collapsed} onClick={toggleCollapsed}>{collapsed ? <IconLayoutSidebarLeftExpand size={20} stroke={1.5} /> : <IconLayoutSidebarLeftCollapse size={20} stroke={1.5} />}</button>}
       </div>
-      {collapsed ? <button className={styles.searchButton} type="button" aria-label="Search navigation" title="Search navigation" onClick={openSearch}><img src={isLight ? assets.searchLight : assets.searchDark} alt="" /></button> : <label className={styles.search}><img src={isLight ? assets.searchLight : assets.searchDark} alt="" /><input ref={searchRef} type="search" aria-label="Search navigation" placeholder="Search..." value={query} onChange={event => { setQuery(event.target.value); onSearch?.(event.target.value); }} /></label>}
-      <nav className={styles.menu} aria-label="Dashboard sections">
-        {visibleItems.map(item => <button key={item.id} type="button" className={styles.menuItem} disabled={item.disabled} aria-label={item.label} title={collapsed ? item.label : undefined} aria-current={activeId === item.id ? 'page' : undefined} onClick={() => { if (controlledActive === undefined) setLocalActive(item.id); onNavigate?.(item); }}><img src={menuIcons[item.icon][theme]} alt="" />{!collapsed && <span>{item.label}</span>}</button>)}
-        {visibleItems.length === 0 && <p className={styles.empty} role="status">No matching sections</p>}
-      </nav>
+      <button className={styles.menuItem} type="button" aria-label="新建项目" title={collapsed ? '新建项目' : undefined} onClick={onCreateProject}><IconPlus size={18} stroke={1.5} aria-hidden="true" />{!collapsed && <span>新建项目</span>}</button>
+      <section className={styles.projects} aria-label="Projects">
+        {!collapsed && <h2 className={styles.sectionTitle}>Projects</h2>}
+        <nav className={styles.menu} aria-label="项目列表">
+          {items.map(item => <button key={item.id} type="button" className={styles.menuItem} disabled={item.disabled} aria-label={item.label} title={collapsed ? item.label : undefined} aria-current={activeId === item.id ? 'page' : undefined} onClick={() => { if (controlledActive === undefined) setLocalActive(item.id); onNavigate?.(item); }}><img src={menuIcons[item.icon][theme]} alt="" />{!collapsed && <span>{item.label}</span>}</button>)}
+        </nav>
+      </section>
     </div>
     <div className={styles.bottom}>
       <button className={styles.menuItem} type="button" aria-label="Logout" title={collapsed ? 'Logout' : undefined} onClick={onLogout}><img src={isLight ? assets.logoutLight : assets.logoutDark} alt="" />{!collapsed && <span>Logout</span>}</button>

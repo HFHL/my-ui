@@ -11,8 +11,13 @@ test('P001 默认浅色、空白工作台、菜单选择不填入工作区', asy
   await expect(shell).toHaveAttribute('data-theme', 'light');
   await expect(sidebar).toHaveAttribute('data-theme', 'light');
   await expect(workbench).toBeEmpty();
-  await page.getByRole('button', { name: '项目', exact: true }).click();
-  await expect(page.getByRole('button', { name: '项目', exact: true })).toHaveAttribute('aria-current', 'page');
+  await expect(page.getByRole('searchbox')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Search navigation' })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeAttached();
+  await expect(page.getByRole('navigation', { name: '项目列表' }).getByRole('button')).toHaveCount(3);
+  await expect(page.getByRole('button', { name: '新建项目', exact: true }).locator('svg')).toHaveCount(1);
+  await page.getByRole('button', { name: '项目 02', exact: true }).click();
+  await expect(page.getByRole('button', { name: '项目 02', exact: true })).toHaveAttribute('aria-current', 'page');
   await expect(workbench).toBeEmpty();
   await page.getByRole('switch', { name: 'Light mode' }).click();
   await expect(shell).toHaveAttribute('data-theme', 'dark');
@@ -21,16 +26,19 @@ test('P001 默认浅色、空白工作台、菜单选择不填入工作区', asy
   expect(errors).toEqual([]);
 });
 
-test('P001 收起展开、搜索，以及收藏库原始 C008 不受影响', async ({ page }) => {
+test('P001 收起展开与新建项目，以及收藏库原始 C008 不受影响', async ({ page }) => {
   await page.goto('/?preview=prototype&id=P001');
   const sidebar = page.getByRole('complementary', { name: 'Dashboard sidebar navigation' });
   await page.getByRole('button', { name: '收起侧栏' }).click();
   await expect(sidebar).toHaveAttribute('data-collapsed', 'true');
-  await page.getByRole('button', { name: 'Search navigation' }).click();
+  await expect(page.getByRole('button', { name: 'Search navigation' })).toHaveCount(0);
+  await page.getByRole('button', { name: '新建项目', exact: true }).click();
+  await expect(page.getByRole('navigation', { name: '项目列表' }).getByRole('button')).toHaveCount(4);
+  await expect(page.getByRole('button', { name: '项目 04', exact: true })).toHaveAttribute('aria-current', 'page');
+  await page.getByRole('button', { name: '展开侧栏' }).click();
   await expect(sidebar).toHaveAttribute('data-collapsed', 'false');
-  await page.getByRole('searchbox', { name: 'Search navigation' }).fill('设置');
-  await expect(page.getByRole('navigation', { name: 'Dashboard sections' }).getByRole('button')).toHaveCount(1);
-  await expect(page.getByRole('button', { name: '设置', exact: true })).toBeAttached();
+  await expect(page.getByRole('button', { name: '项目 04', exact: true })).toBeAttached();
+  await expect(page.getByRole('main', { name: '工作台' })).toBeEmpty();
   await page.goto('/?preview=component&id=C008');
   await expect(page.getByRole('complementary', { name: 'Dashboard sidebar navigation' })).toHaveAttribute('data-theme', 'dark');
   await expect(page.getByRole('button', { name: 'Dashboard', exact: true })).toBeAttached();

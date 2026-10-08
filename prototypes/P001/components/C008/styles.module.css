@@ -66,3 +66,5 @@
 .knob img { width: 18px; height: 18px; }
 .sidebar[data-collapsed='true'] .themeSwitch { width: 40px; }
 .sidebar[data-collapsed='true'] .themeSwitch[aria-checked='true'] .knob { transform: translateX(14px); }
+.projects { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.sectionTitle { margin: 0; padding: 0 10px; font-size: 13px; font-weight: 400; line-height: 1.5; color: var(--sidebar-muted); }
