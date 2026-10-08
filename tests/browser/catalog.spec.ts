@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-test('仅展示新组件，搜索、分类、标签组合与收藏仍可用', async ({ page }) => {
+test('组件搜索、分类、标签组合与收藏仍可用', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  await expect(page.locator('.component-card')).toHaveCount(1);
+  await expect(page.locator('.component-card')).toHaveCount(2);
   await expect(page.getByRole('button', { name: 'Upload dropzone', exact: true })).toBeVisible();
   await page.getByRole('textbox', { name: '搜索组件' }).fill('c007');
   await expect(page.locator('.component-card')).toHaveCount(1);
@@ -84,8 +84,8 @@ test('移动布局、局部设计变量、减少动效与注销编号', async ({
 
 test('桌面预览截图', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('.component-card')).toHaveCount(1);
-  await expect(page.frameLocator('.component-stage iframe').getByText('Drag a file here', { exact: true })).toBeVisible();
+  await expect(page.locator('.component-card')).toHaveCount(2);
+  await expect(page.frameLocator('iframe[title="C007 Upload dropzone缩略预览"]').getByText('Drag a file here', { exact: true })).toBeVisible();
   await page.screenshot({ path: 'test-results/catalog-desktop.png', fullPage: true });
   await page.getByRole('button', { name: '查看 C007 Upload dropzone', exact: true }).click();
   await expect(page.frameLocator('iframe[title="C007 交互预览"]').getByText('Drag a file here', { exact: true })).toBeVisible();

@@ -73,6 +73,8 @@ npm run prototype:new -- my-project C007
 - 使用 `framer-motion` 与 `lucide-react`；CSS Modules 隔离样式，设计变量限定在组件根节点，信号色与成功色沿用项目绿色强调色。
 - 许可为 [Bencho MIT License](https://bencho.dev/licence)，版权及完整许可保存在 `components/C007/LICENSE`；复制组件时保留该文件。
 - `C001–C006` 已注销，不再展示、不复用；历史实现可在 Git 历史中查看。
+- 📝 `C008 · Dashboard Sidebar Navigation`：来自用户指定的 Figma 节点 `429:783`，提供深浅主题、展开收起、五项导航、菜单搜索及退出回调。节点图标、头像均保存在组件自身 `assets/` 中，Open Sans 通过基础依赖在本地加载。
+- 📝 `C008` 导出 `SidebarNavigation`。支持 `theme` / `defaultTheme`、`collapsed` / `defaultCollapsed`、`activeId` / `defaultActiveId`，以及 `items`、`profile`、`height` 和 `onThemeChange`、`onCollapsedChange`、`onNavigate`、`onSearch`、`onLogout`。导航和退出的业务行为由消费项目通过回调实现；原设计与资产许可按来源条款处理，不沿用 `C007` 的 MIT 声明。
 
 ## 📝 验证
 
@@ -85,6 +87,12 @@ npm run test:browser
 ```
 
 验证包含编号扩展、不复用、组件相对导入边界、原型副本独立性、重复创建拒绝、搜索、分类与标签组合、收藏持久化、预览交互、键盘关闭详情及移动布局。
+
+### 📝 默认仅做代码验收
+
+按用户 2026-10-08 的明确要求，默认不做图片、截图或视觉检查。`npm run build` 检查类型、登记和构建，`npm test` 检查文件流程、搜索逻辑及资产非空；`npm run test:browser` 默认只执行不生成截图的 DOM / 事件逻辑测试。
+
+历史截图测试仍保留，只有用户明确要求视觉验收时才使用 `UI_VISUAL_CHECK=1 npm run test:browser`；不默认运行，不读取截图检查。
 
 ## 📝 Mac mini 私有预览
 
@@ -118,3 +126,4 @@ tailscale serve --https=9446 off
 - 2026-10-08：搭建文件驱动的收藏库基底、六个独立原创示例、自动编号与原型复制命令、统一浏览页面及工作室概览原型；私有服务和浏览器验收结果以本机登记为准。
 - 📝 2026-10-08 验收：构建、四项文件流程测试与四项浏览器测试通过；私有 HTTPS 下重复的浏览器检查通过且未忽略证书错误。本机默认 DNS 无法解析自身 Tailscale 域名，HTTPS 验证使用显式 DNS 映射；未进行第二设备验收。现有 Serve 入口未变，未启用 Funnel。
 - 📝 2026-10-08 组件替换：按用户要求删除六个初始组件与示例原型，注销原编号，接入用户提供的 Bencho Upload dropzone，编号为 `C007`；保留原注释并补齐许可，新增组件交互验收。
+- 📝 2026-10-08 Figma 接入：新增 `C008` Sidebar Navigation，保留 `C007`；节点上下文排除截图，原始资产本地化，使用局部 CSS Modules 和回调实现交互。构建、六项逻辑测试和两项无截图 DOM 测试通过；私有 HTTPS 入口本机响应 200，第二设备尚未验收。

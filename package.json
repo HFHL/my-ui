@@ -9,13 +9,14 @@
     "check": "node scripts/validate.mjs",
     "component:new": "node scripts/new-component.mjs",
     "prototype:new": "node scripts/new-prototype.mjs",
-    "test": "node --test tests/library.test.mjs",
+    "test": "node --test tests/*.test.mjs",
     "test:browser": "playwright test"
   },
   "keywords": [],
   "author": "",
   "type": "module",
   "dependencies": {
+    "@fontsource/open-sans": "^5.3.0",
     "@radix-ui/react-dialog": "^1.2.0",
     "@tabler/icons-react": "^3.49.0",
     "framer-motion": "^14.0.0",

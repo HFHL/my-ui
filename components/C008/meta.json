@@ -1,0 +1,17 @@
+{
+  "id": "C008",
+  "name": "Dashboard Sidebar Navigation",
+  "category": "导航",
+  "tags": [
+    "侧栏",
+    "导航",
+    "仪表盘",
+    "深浅主题",
+    "可折叠"
+  ],
+  "description": "Figma Dashboard Sidebar Navigation：支持深浅主题、展开收起、菜单搜索与导航回调。",
+  "createdAt": "2026-10-08",
+  "source": "Figma Community · Dashboard Sidebar Navigation · 5U6RM6E1GUSSUOmrYjh8rl · 429:783",
+  "license": "原设计与资产授权需遵循 Figma Community 来源条款；未提供独立 MIT 许可",
+  "figmaUrl": "https://www.figma.com/design/5U6RM6E1GUSSUOmrYjh8rl/Dashboard-Sidebar-Navigation--Community-?node-id=429-783"
+}
