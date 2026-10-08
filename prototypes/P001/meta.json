@@ -1,0 +1,15 @@
+{
+  "slug": "P001",
+  "name": "P001",
+  "description": "参考 Codex 的左右工作台布局：浅色侧栏 + 空白工作区域，复用 C008 独立副本。",
+  "createdAt": "2026-10-08",
+  "components": [
+    {
+      "id": "C008",
+      "copiedAt": "2026-10-08",
+      "source": "components/C008/",
+      "modified": true,
+      "modifications": "适配全窗口侧栏、紧凑间距与中性浅色，增加收起控件；不修改收藏库原件。"
+    }
+  ]
+}

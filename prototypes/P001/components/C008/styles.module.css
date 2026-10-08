@@ -1,0 +1,68 @@
+.sidebar { --sidebar-bg: #09090a; --sidebar-edge: #1f1f22; --sidebar-ink: #efefef; --sidebar-muted: #c0bfbd; --sidebar-slab: #1f1f22; --sidebar-accent: #c8bcf6; box-sizing: border-box; flex-shrink: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 44px; width: 266px; max-width: 100%; min-height: 744px; padding: 24px 24px 32px; border-right: 1px solid var(--sidebar-edge); background: var(--sidebar-bg); color: var(--sidebar-ink); font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; }
+.sidebar[data-theme='light'] { --sidebar-bg: #fff; --sidebar-edge: #efefef; --sidebar-ink: #09090a; --sidebar-muted: #1f1f22; --sidebar-slab: #f5f5f5; }
+.sidebar[data-collapsed='true'] { width: 104px; }
+.top { display: flex; flex-direction: column; gap: 44px; min-width: 0; }
+.profile { display: flex; align-items: center; gap: 12px; }
+.avatar { display: block; flex-shrink: 0; width: 56px; height: 56px; object-fit: cover; border-radius: 16px; }
+.profileText { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.profileText strong { font-size: 16px; font-weight: 700; }
+.profileText span { font-size: 14px; color: var(--sidebar-muted); }
+.profileText strong, .profileText span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search, .searchButton { display: flex; align-items: center; gap: 16px; box-sizing: border-box; height: 56px; padding: 16px; border: 0; border-radius: 16px; background: var(--sidebar-slab); color: var(--sidebar-ink); }
+.searchButton { width: 56px; cursor: pointer; }
+.search img, .searchButton img, .menuItem img, .themeLabel img, .knob img { display: block; flex-shrink: 0; }
+.search input { font: inherit; color: inherit; width: 100%; min-width: 0; border: 0; padding: 0; background: transparent; outline: none; }
+.search input::placeholder { color: inherit; opacity: 1; }
+.menu { display: flex; flex-direction: column; gap: 24px; }
+.menuItem { display: flex; align-items: center; gap: 16px; box-sizing: border-box; width: 100%; min-height: 56px; padding: 16px; border: 0; border-radius: 8px; background: transparent; color: inherit; font: inherit; font-size: 16px; text-align: left; cursor: pointer; }
+.menuItem span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.menuItem:hover, .menuItem[aria-current='page'] { background: var(--sidebar-slab); }
+.menuItem[aria-current='page'] { box-shadow: inset 2px 0 var(--sidebar-accent); }
+.menuItem:disabled { opacity: .45; cursor: not-allowed; }
+.sidebar button:focus-visible { outline: 2px solid var(--sidebar-accent); outline-offset: 3px; }
+.search:focus-within { outline: 2px solid var(--sidebar-accent); outline-offset: 3px; }
+.bottom { display: flex; flex-direction: column; gap: 8px; }
+.themeControl { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-height: 56px; padding: 12px 0 12px 16px; }
+.sidebar[data-collapsed='true'] .themeControl { padding: 12px 0; }
+.themeLabel { display: flex; align-items: center; gap: 16px; color: var(--sidebar-muted); white-space: nowrap; }
+.themeSwitch { position: relative; box-sizing: border-box; flex-shrink: 0; width: 56px; height: 32px; padding: 2px; border: 0; border-radius: 16px; background: var(--sidebar-slab); cursor: pointer; }
+.themeSwitch[aria-checked='true'] { background: var(--sidebar-accent); }
+.knob { display: grid; place-items: center; width: 28px; height: 28px; background: var(--sidebar-accent); border-radius: 14px; box-shadow: 0 2px 4px #0000001a, 0 1px 2px #0000001a, 0 1px 3px #0000001a; }
+.themeSwitch[aria-checked='true'] .knob { transform: translateX(24px); background: #09090a; }
+.empty { margin: 0; padding: 16px; font-size: 13px; color: var(--sidebar-muted); }
+.preview { display: flex; flex-direction: column; align-items: center; max-width: 100%; gap: 12px; }
+.previewControls { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; font-size: 12px; }
+.previewControls button { border: 1px solid #dce5df; border-radius: 6px; padding: 6px 10px; background: #fff; color: #28573d; cursor: pointer; }
+.previewControls p { margin: 0; color: #65716c; }
+
+/* P001 adaptation: a compact full-window sidebar beside an empty workbench.
+   These rules apply only to this prototype's copied component. */
+.sidebar { width: 100%; max-width: none; min-height: 0; padding: 20px 16px 16px; gap: 24px; overflow-y: auto; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; font-size: 14px; --sidebar-accent: #85898e; }
+.sidebar[data-theme='light'] { --sidebar-bg: #f7f7f8; --sidebar-edge: #e5e5e7; --sidebar-ink: #28282b; --sidebar-muted: #828288; --sidebar-slab: #ededef; }
+.sidebar[data-collapsed='true'] { width: 100%; padding: 20px 12px 16px; }
+.top { gap: 20px; }
+.profile { gap: 10px; min-height: 40px; }
+.avatar { width: 32px; height: 32px; border-radius: 10px; }
+.profileText { flex: 1; }
+.profileText strong { font-size: 18px; }
+.profileText span { font-size: 11px; }
+.collapseButton { display: grid; place-items: center; flex-shrink: 0; padding: 6px; background: transparent; color: var(--sidebar-muted); border: 0; border-radius: 6px; cursor: pointer; }
+.collapseButton:hover { background: var(--sidebar-slab); }
+.sidebar[data-collapsed='true'] .avatar { display: none; }
+.sidebar[data-collapsed='true'] .profile { justify-content: center; }
+.search, .searchButton { height: 40px; padding: 8px 10px; gap: 10px; border-radius: 9px; }
+.searchButton { width: 40px; padding: 8px; }
+.search input { font-size: 13px; }
+.menu { gap: 4px; }
+.menuItem { min-height: 40px; padding: 8px 10px; gap: 10px; font-size: 14px; border-radius: 9px; }
+.menuItem[aria-current='page'] { box-shadow: none; font-weight: 600; }
+.sidebar[data-collapsed='true'] .menuItem { padding: 8px; }
+.bottom { margin-top: auto; }
+.themeControl { min-height: 48px; padding: 8px 0 8px 10px; }
+.themeLabel { gap: 10px; font-size: 12px; }
+.themeSwitch { width: 44px; height: 26px; }
+.knob { width: 22px; height: 22px; }
+.themeSwitch[aria-checked='true'] .knob { transform: translateX(18px); background: #28282b; }
+.knob img { width: 18px; height: 18px; }
+.sidebar[data-collapsed='true'] .themeSwitch { width: 40px; }
+.sidebar[data-collapsed='true'] .themeSwitch[aria-checked='true'] .knob { transform: translateX(14px); }

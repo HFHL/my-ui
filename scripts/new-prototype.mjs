@@ -7,7 +7,9 @@ const root = process.cwd();
 let temporary;
 let lock;
 try {
-  if (!slug || !/^[a-z][a-z0-9-]{0,63}$/.test(slug) || !requested.length) throw new Error('用法：npm run prototype:new -- project-name C001 C002（项目名用小写字母、数字和连字符）');
+  const namedSlug = slug && /^[a-z][a-z0-9-]{0,63}$/.test(slug);
+  const numberedSlug = slug && /^P(?:\d{3}|[1-9]\d{3,})$/.test(slug) && Number(slug.slice(1)) > 0;
+  if ((!namedSlug && !numberedSlug) || !requested.length) throw new Error('用法：npm run prototype:new -- P001 C008（也支持小写字母、数字和连字符的项目名）');
   const ids = [...new Set(requested)];
   const available = await validateLibrary(root);
   for (const id of ids) if (!available.includes(id)) throw new Error(`组件不存在：${id}`);

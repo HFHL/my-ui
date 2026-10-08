@@ -59,3 +59,13 @@ test('拒绝无效原型名称、不存在的组件，保留其他写入者的�
   assert.notEqual(run('new-prototype.mjs', ['sample', 'C001'], root).status, 0);
   await writeFile(path.join(root, 'prototypes/.sample.lock/owner'), 'other writer');
 }));
+
+test('支持 P001 原型编号，拒绝零编号及重复编号', async () => fixture(async root => {
+  assert.notEqual(run('new-prototype.mjs', ['P000', 'C001'], root).status, 0);
+  const result = run('new-prototype.mjs', ['P001', 'C001'], root);
+  assert.equal(result.status, 0, result.stderr);
+  const metadata = JSON.parse(await readFile(path.join(root, 'prototypes/P001/meta.json'), 'utf8'));
+  assert.equal(metadata.slug, 'P001');
+  assert.equal(metadata.components[0].id, 'C001');
+  assert.notEqual(run('new-prototype.mjs', ['P001', 'C001'], root).status, 0);
+}));
