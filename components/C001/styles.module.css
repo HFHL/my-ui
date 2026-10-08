@@ -1,0 +1,9 @@
+.button { font: inherit; font-size: 14px; font-weight: 600; padding: 11px 18px; border-radius: 8px; border: 1px solid transparent; cursor: pointer; transition: background .15s; }
+.primary { background: #146b57; color: white; }
+.primary:hover { background: #105442; }
+.secondary { background: white; border-color: #dce2df; color: #283e35; }
+.secondary:hover { background: #f0f5f2; }
+.ghost { background: transparent; color: #146b57; }
+.ghost:hover { background: #eef5f1; }
+.button:focus-visible { outline: 3px solid #70aa94; outline-offset: 3px; }
+.button:disabled { opacity: .5; cursor: not-allowed; }

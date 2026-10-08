@@ -1,0 +1,4 @@
+.group { display: inline-flex; flex-wrap: wrap; gap: 3px; padding: 4px; border-radius: 9px; background: #f0f3f1; border: 1px solid #e5eae7; }
+.option { border: 0; color: #607068; font: inherit; font-size: 13px; background: transparent; border-radius: 6px; padding: 9px 18px; cursor: pointer; }
+.selected { color: #164b37; background: white; box-shadow: 0 1px 4px #183e2012; font-weight: 600; }
+.option:focus-visible { outline: 2px solid #146b57; outline-offset: 1px; }

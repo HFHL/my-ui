@@ -5,3 +5,10 @@ dist/
 .env.*
 !.env.example
 *.log
+test-results/
+playwright-report/
+components/.allocation.lock
+components/ids.json.tmp
+components/.C*/
+prototypes/.*.lock/
+prototypes/.*-*/

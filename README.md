@@ -1,0 +1,110 @@
+# 📝 my UI：组件收藏库与项目原型
+
+一个由本地文件维护的 UI 收藏库。收藏组件独立存放，统一页面负责查找和预览；项目原型使用组件副本。
+
+## 📝 基底结构
+
+```text
+components/
+  ids.json              # 已分配及注销编号，不复用
+  C001/
+    meta.json           # 编号、分类、标签、说明、来源、许可
+    index.tsx           # 可复用实现
+    styles.module.css   # 局部样式
+    Preview.tsx         # 展示与交互示例
+catalog/                # 元数据索引、搜索、筛选、收藏、详情
+prototypes/
+  studio-overview/
+    meta.json           # 原型及组件来源记录
+    App.tsx             # 原型组装入口
+    components/         # 收藏组件的独立副本
+scripts/                # 本地编号分配、组件复制、检查
+tests/                  # 文件流程与浏览器验收
+```
+
+收藏库与原型共用 React、TypeScript、Vite 等基础依赖，但不互相引用组件实现。预览通过独立 iframe 加载；展示页的全局样式不载入组件预览页面。iframe 提供页面和样式隔离，不是运行恶意代码的安全沙箱，收集来的代码必须先审查后再接入。
+
+## 📝 本地运行
+
+```sh
+npm ci
+npm run dev
+```
+
+开发服务默认只监听 `127.0.0.1:5178`。
+
+```sh
+npm run build
+npm run preview
+```
+
+`preview` 用于短时查看构建产物，停止后页面不可访问；本项目尚未配置常驻进程或重启恢复。改变文件后，开发模式自动刷新；构建预览需要重新构建。
+
+## 📝 添加组件
+
+```sh
+npm run component:new -- "日期选择器" "表单"
+```
+
+命令会自动分配下一个编号并生成组件目录。随后填写 `index.tsx`、`Preview.tsx`、局部样式和 `meta.json`；无需手工修改展示页索引。
+
+- 编号稳定；分类、名称与标签可修改。
+- 标签是字符串数组，展示页多个标签按“同时包含”筛选；搜索多个空格分隔关键词时要求全部匹配。
+- 修改或收藏不会改变编号。浏览器收藏只保存在当前设备的 localStorage，不跨设备同步。
+- 删除组件时先将编号加入 `components/ids.json` 的 `retired`，保留 `allocated` 中的记录，再删除该目录。
+- 检查拒绝组件目录外的相对导入；复杂动态导入、样式资源与非相对别名仍需代码审查，不把静态检查视为完整的依赖分析。
+- 来源与许可必须如实填写；仓库未指定对外开源许可，示例不代表外部组件授权。
+
+## 📝 创建项目原型
+
+```sh
+npm run prototype:new -- my-project C001 C002 C005
+```
+
+项目名使用小写字母、数字和连字符。命令将整个组件目录复制到 `prototypes/my-project/components/`，记录来源编号，并生成初始 `App.tsx`。在该入口继续组装；复制后的组件修改可在原型元数据中记录 `modified: true` 与说明。
+
+展示页自动发现原型入口。可以在“项目原型”中打开，也可使用同源地址 `/?preview=prototype&id=my-project`。示例 `studio-overview` 已展示导航、指标、周期切换和按钮组装。原型目前共享基础运行环境，尚未生成独立部署工程。
+
+## 📝 验证
+
+```sh
+npm run build
+npm test
+# 先启动 preview；首次使用安装测试浏览器
+npx playwright install chromium
+npm run test:browser
+```
+
+验证包含编号扩展、不复用、组件相对导入边界、原型副本独立性、重复创建拒绝、搜索、分类与标签组合、收藏持久化、预览交互、键盘关闭详情及移动布局。
+
+## 📝 Mac mini 私有预览
+
+本机部署地址不写进业务代码。外部主机名通过 `UI_ALLOWED_HOST` 注入，Vite 仅允许明确的主机名，保持宿主监听回环地址。私有入口使用已有 Tailscale Serve；按目标端口添加或关闭，不重置其他项目入口。参见 [Vite 主机限制](https://vite.dev/config/server-options#server-allowedhosts) 与 [Tailscale Serve](https://tailscale.com/docs/reference/tailscale-cli/serve)。
+
+本次分配本地端口 `5178` 与独立私有 HTTPS 端口 `9446`。实际 URL、运行与验证状态记录在仓库外 `/Users/feiyuzi/.config/macmini-services/my-ui.json`。
+
+启动短时私有预览：
+
+```sh
+npm run build
+UI_ALLOWED_HOST="$(tailscale status --json | node -e 'let data="";process.stdin.on("data",value=>data+=value);process.stdin.on("end",()=>process.stdout.write(JSON.parse(data).Self.DNSName.replace(/\.$/,"")))')" npm run preview
+# 在另一终端添加本项目入口
+tailscale serve --bg --https=9446 http://127.0.0.1:5178
+```
+
+停止时在预览终端按 `Ctrl+C`，并仅关闭本项目入口：
+
+```sh
+tailscale serve --https=9446 off
+```
+
+重启采用同样的启动步骤；日志在前台终端，失败时修复构建或端口冲突后重启。没有配置登录恢复、开机启动或休眠唤醒保证。`serve --bg` 仅保存代理，不保活应用。
+
+当前网页只提供展示和浏览器本地收藏，没有执行命令、读写宿主文件、操作 Agent 或在线修改组件的 API。访问授权依赖当前 tailnet 规则，不能视为仅本人；加入敏感管理能力前须先实现应用认证和授权。
+
+第二设备验收：在已授权设备启用 Tailscale，打开登记中的 HTTPS URL；确认分类搜索、详情交互、收藏和示例原型，并检查浏览器没有证书或资源加载错误。
+
+## 📝 建设记录
+
+- 2026-10-08：搭建文件驱动的收藏库基底、六个独立原创示例、自动编号与原型复制命令、统一浏览页面及工作室概览原型；私有服务和浏览器验收结果以本机登记为准。
+- 📝 2026-10-08 验收：构建、四项文件流程测试与四项浏览器测试通过；私有 HTTPS 下重复的浏览器检查通过且未忽略证书错误。本机默认 DNS 无法解析自身 Tailscale 域名，HTTPS 验证使用显式 DNS 映射；未进行第二设备验收。现有 Serve 入口未变，未启用 Funnel。

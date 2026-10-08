@@ -1,0 +1,34 @@
+{
+  "name": "my-ui",
+  "version": "1.0.0",
+  "description": "个人 UI 组件收藏库与独立项目原型",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run check && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "node scripts/validate.mjs",
+    "component:new": "node scripts/new-component.mjs",
+    "prototype:new": "node scripts/new-prototype.mjs",
+    "test": "node --test tests/library.test.mjs",
+    "test:browser": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.2.0",
+    "@tabler/icons-react": "^3.49.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.3"
+  },
+  "private": true
+}

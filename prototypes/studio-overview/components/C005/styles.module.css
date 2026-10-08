@@ -1,0 +1,6 @@
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding: 18px 22px; background: #fff; border: 1px solid #e2e7e4; border-radius: 10px; color: #283e35; }
+.brand { font-size: 17px; letter-spacing: -.5px; }
+.items { display: flex; flex-wrap: wrap; gap: 5px; }
+.item { color: #63746a; background: transparent; border: 0; padding: 8px 10px; font: inherit; font-size: 13px; cursor: pointer; border-radius: 6px; }
+.active { background: #edf6f0; color: #146b57; font-weight: 600; }
+.item:focus-visible { outline: 2px solid #146b57; }

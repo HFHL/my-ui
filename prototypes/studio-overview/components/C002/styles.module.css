@@ -1,0 +1,5 @@
+.card { box-sizing: border-box; background: #fff; border: 1px solid #e1e5e3; border-radius: 12px; padding: 24px; width: 100%; min-width: 220px; font-family: inherit; color: #26362e; }
+.label { font-size: 13px; color: #69766d; }
+.value { display: block; font-size: 38px; font-weight: 600; letter-spacing: -1.5px; margin: 12px 0 18px; }
+.bottom { display: flex; gap: 9px; align-items: center; font-size: 12px; color: #69766d; flex-wrap: wrap; }
+.change { color: #146b57; background: #edf6f0; padding: 4px 6px; border-radius: 4px; font-weight: 600; }
