@@ -5,5 +5,22 @@
   "createdAt": "2026-10-08",
   "components": [],
   "source": "https://template-4.heroui.pro/",
-  "implementation": "Public source DOM/CSS and captured SVG period states; local-only interaction adapters"
+  "implementation": "Public source DOM/CSS and captured SVG period states; local-only interaction adapters",
+  "extractedComponents": [
+    "C010",
+    "C011",
+    "C012",
+    "C013",
+    "C014",
+    "C015",
+    "C016",
+    "C017",
+    "C018",
+    "C019",
+    "C020",
+    "C021",
+    "C022",
+    "C023",
+    "C024"
+  ]
 }

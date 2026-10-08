@@ -1,0 +1,18 @@
+{
+  "id": "C012",
+  "name": "Metric Card",
+  "category": "数据展示",
+  "tags": [
+    "指标",
+    "卡片",
+    "财务",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "可配置财务指标卡，支持数值、变化幅度和中性标签。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "MetricCard"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "C022",
+  "name": "Holding Row",
+  "category": "数据展示",
+  "tags": [
+    "持仓",
+    "列表项",
+    "资产",
+    "财务",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "独立持仓项目行，展示资产头像、名称、余额与趋势。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "HoldingRow"
+}

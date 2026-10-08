@@ -1,0 +1,18 @@
+{
+  "id": "C011",
+  "name": "Finance Topbar",
+  "category": "导航",
+  "tags": [
+    "顶部栏",
+    "财务",
+    "操作",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "财务工作台顶部栏，提供导航开关、欢迎标题与操作回调。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "FinanceTopbar"
+}

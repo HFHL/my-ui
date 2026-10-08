@@ -75,6 +75,30 @@ npm run prototype:new -- P002 C008
 
 入口为 `/?preview=prototype&id=P002`，独立代码在 `prototypes/P002/`，依据 HeroUI Finances 公开首页的 DOM、样式与六周期 SVG 状态复刻。提供资产概览、持仓、交易活动、周期切换、侧栏开关和本地演示操作；复刻范围及来源差异见 [P002 说明](prototypes/P002/README.md)。不连接钱包或执行真实交易。已安装 web-shader-extractor，但页面没有 Canvas / Shader 目标，未使用该技能进行普通 DOM 复制。
 
+### 📝 P002 拆分组件索引
+
+在收藏页搜索 `P002`，或筛选 `P002` / `HeroUI` 标签，可集中查看本批 15 个组件。每个目录有独立实现、CSS Modules、元数据、预览及所需本地资产；不导入其他收藏组件或原型实现。P002 保留原运行代码，提取编号单独记录，避免把来源关系误记为运行依赖。
+
+| 编号 | 组件 | 用途 |
+| --- | --- | --- |
+| C010 | FinanceSidebar | 用户资料、财务导航和账户操作 |
+| C011 | FinanceTopbar | 欢迎标题、导航开关与操作区 |
+| C012 | MetricCard | 可配置余额、涨跌等指标卡 |
+| C013 | TrendChip | 上升、下降和中性趋势标签 |
+| C014 | TimeRangeSelector | 六周期选择与回调 |
+| C015 | PortfolioChart | 余额、周期与原始 SVG 图表组合卡 |
+| C016 | HoldingsList | 持仓列表及查看全部回调 |
+| C017 | TransactionTable | 交易表格、排序与行选择 |
+| C018 | FinanceActionDialog | 独立操作弹窗、表单和自定义内容 |
+| C019 | AssetAvatar | 资产缩写头像 |
+| C020 | ActionButton | 图标操作按钮及原生按钮属性 |
+| C021 | FinanceLayout | 侧栏、顶部栏、内容插槽和收起状态 |
+| C022 | HoldingRow | 单条资产余额和趋势展示 |
+| C023 | TransactionTypeBadge | 交易类型图标与文字 |
+| C024 | UserProfile | 用户头像、名称和邮箱 |
+
+接口参数在各目录 `index.tsx` 的 TypeScript 类型中；复制整个目录即可组装原型。C015 延续原型的六个 SVG 快照，不包含实时图表数据或悬停提示；弹窗表单保持本地演示用途。外部设计与资产授权按 HeroUI 来源条款保留。
+
 ## 📝 当前组件
 
 - `C007 · Upload dropzone`：Bencho 的上传拖拽动画，分类为“表单”，标签包括上传、拖拽、动画和模拟交互。
@@ -142,3 +166,4 @@ tailscale serve --https=9446 off
 - 📝 2026-10-08 组件新增：接入 C009 Modern Navbar，保留现有组件及 P001；读取 Figma 结构与样式时排除截图，按代码和事件逻辑验收。
 - 📝 2026-10-08 P001 调整：移除侧栏搜索，添加带小图标的新建项目操作、Projects 标题与三个预设项目；新建可追加会话内项目，右侧工作区保持空白。
 - 📝 2026-10-08 P002 创建：安装 web-shader-extractor 并核查适用范围，新增 HeroUI Finances 仪表盘首页原型；使用本地来源资产，不请求或读取截图，按代码和事件逻辑验收。
+- 📝 2026-10-08 P002 拆分：新增 C010–C024 共十五个独立收藏组件；原型运行代码保持原样。构建、组件导入边界、独立预览、主要回调与原型回归按代码和无截图事件测试验收。

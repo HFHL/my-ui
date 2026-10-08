@@ -1,0 +1,19 @@
+{
+  "id": "C018",
+  "name": "Finance Action Dialog",
+  "category": "反馈",
+  "tags": [
+    "弹窗",
+    "表单",
+    "财务",
+    "模拟交互",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "独立财务操作弹窗，支持 Send、Receive、Swap 和自定义内容。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "FinanceActionDialog"
+}

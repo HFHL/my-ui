@@ -1,0 +1,62 @@
+[
+  {
+    "id": "tx-1",
+    "hash": "0xaa2bf905d3\u2026",
+    "type": "Contract Interaction",
+    "asset": "ETH",
+    "quantity": "0.12312453",
+    "value": "$320.65",
+    "date": "Dec 8, 2025 \u00b7 12:32 PM",
+    "timestamp": "2025-12-08T12:32:00"
+  },
+  {
+    "id": "tx-2",
+    "hash": "0xbb4e0d712f\u2026",
+    "type": "Received",
+    "asset": "USDC",
+    "quantity": "500.00",
+    "value": "$500.00",
+    "date": "Dec 7, 2025 \u00b7 11:43 AM",
+    "timestamp": "2025-12-07T11:43:00"
+  },
+  {
+    "id": "tx-3",
+    "hash": "0xcc1a2f4e39\u2026",
+    "type": "Sent",
+    "asset": "ETH",
+    "quantity": "1.42",
+    "value": "$3,384.10",
+    "date": "Nov 28, 2025 \u00b7 08:14 AM",
+    "timestamp": "2025-11-28T08:14:00"
+  },
+  {
+    "id": "tx-4",
+    "hash": "0xdd6b5a1635\u2026",
+    "type": "Swapped",
+    "asset": "BTC",
+    "quantity": "0.1543",
+    "value": "$9,385.22",
+    "date": "Oct 5, 2025 \u00b7 06:21 PM",
+    "timestamp": "2025-10-05T18:21:00"
+  },
+  {
+    "id": "tx-5",
+    "hash": "0xee7c6f5410\u2026",
+    "type": "Received",
+    "asset": "SOL",
+    "quantity": "12.4",
+    "value": "$2,692.16",
+    "date": "Oct 2, 2025 \u00b7 02:12 PM",
+    "timestamp": "2025-10-02T14:12:00"
+  },
+  {
+    "id": "tx-6",
+    "hash": "0xff9d0a7102\u2026",
+    "type": "Sent",
+    "asset": "USDC",
+    "quantity": "850.00",
+    "value": "$850.00",
+    "date": "Sep 29, 2025 \u00b7 09:54 AM",
+    "timestamp": "2025-09-29T09:54:00"
+  }
+]

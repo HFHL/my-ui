@@ -1,0 +1,12 @@
+
+.root { --finance-bg: #f5f5f5; --finance-surface: #fff; --finance-ink: #11181c; --finance-muted: #71717a; --finance-border: #dedee0; --finance-accent: #0485f7; --finance-up: #17c964; --finance-down: #f31260; color: var(--finance-ink); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 1.5; }
+.root, .root * { box-sizing: border-box; }
+.root button, .root input, .root select { font: inherit; }
+.root button { cursor: pointer; }
+.root button:disabled { opacity: .45; cursor: not-allowed; }
+.root button:focus-visible, .root input:focus-visible, .root select:focus-visible { outline: 2px solid var(--finance-accent); outline-offset: 3px; }
+.icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.icon svg { display: block; width: 16px; height: 16px; }
+
+.chip{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:2px 6px;font-size:12px;white-space:nowrap;}.up{color:#0c9b48;}.down{color:#d52054;}.neutral{color:var(--finance-muted);}.up.soft{background:#daf8e4;}.down.soft{background:#ffe3eb;}.neutral.soft{background:#ededf0;}
+

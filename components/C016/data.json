@@ -1,0 +1,42 @@
+[
+  {
+    "symbol": "BTC",
+    "name": "Bitcoin",
+    "value": "$1,283.84",
+    "change": "+2.34%",
+    "trend": "up",
+    "color": "#F7931A"
+  },
+  {
+    "symbol": "USDC",
+    "name": "USDC",
+    "value": "$2,087.25",
+    "change": "+0.01%",
+    "trend": "up",
+    "color": "#2775CA"
+  },
+  {
+    "symbol": "ETH",
+    "name": "Ethereum",
+    "value": "$1,087.25",
+    "change": "-1.12%",
+    "trend": "down",
+    "color": "#627EEA"
+  },
+  {
+    "symbol": "BNB",
+    "name": "BNB Chain",
+    "value": "$165.20",
+    "change": "+0.92%",
+    "trend": "up",
+    "color": "#F0B90B"
+  },
+  {
+    "symbol": "SOL",
+    "name": "Solana",
+    "value": "$195.54",
+    "change": "+4.72%",
+    "trend": "up",
+    "color": "#14F195"
+  }
+]

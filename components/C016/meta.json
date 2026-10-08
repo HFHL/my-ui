@@ -1,0 +1,19 @@
+{
+  "id": "C016",
+  "name": "Holdings List",
+  "category": "数据展示",
+  "tags": [
+    "持仓",
+    "列表",
+    "资产",
+    "财务",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "持仓列表卡，支持自定义资产数据、行选择和查看全部回调。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "HoldingsList"
+}

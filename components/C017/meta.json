@@ -1,0 +1,19 @@
+{
+  "id": "C017",
+  "name": "Transaction Table",
+  "category": "数据展示",
+  "tags": [
+    "交易",
+    "表格",
+    "排序",
+    "财务",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "近期交易表格，支持日期排序、空状态与交易选择回调。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "TransactionTable"
+}

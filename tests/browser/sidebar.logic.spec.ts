@@ -34,7 +34,7 @@ test('收起与搜索展开、收藏库保持独立组件索引', async ({ page 
   await expect(sidebar).toHaveAttribute('data-collapsed', 'false');
   await expect(page.getByRole('searchbox', { name: 'Search navigation' })).toBeFocused();
   await page.goto('/');
-  await expect(page.locator('.component-card')).toHaveCount(3);
+  await expect(page.locator('.component-card')).toHaveCount(18);
   await page.getByRole('textbox', { name: '搜索组件' }).fill('C008');
   await expect(page.locator('.component-card')).toHaveCount(1);
   await expect(page.getByRole('button', { name: 'Dashboard Sidebar Navigation', exact: true })).toBeAttached();

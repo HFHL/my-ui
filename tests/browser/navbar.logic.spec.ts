@@ -23,7 +23,7 @@ test('C009 小屏键盘操作与收藏库索引', async ({ page }) => {
   await page.getByRole('button', { name: 'Team', exact: true }).press('Enter');
   await expect(page.getByRole('button', { name: 'Team', exact: true })).toHaveAttribute('aria-current', 'page');
   await page.goto('/');
-  await expect(page.locator('.component-card')).toHaveCount(3);
+  await expect(page.locator('.component-card')).toHaveCount(18);
   await page.getByRole('textbox', { name: '搜索组件' }).fill('C009');
   await expect(page.locator('.component-card')).toHaveCount(1);
   await expect(page.getByRole('button', { name: 'Modern Navbar', exact: true })).toBeAttached();

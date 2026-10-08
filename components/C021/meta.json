@@ -1,0 +1,19 @@
+{
+  "id": "C021",
+  "name": "Finance Layout",
+  "category": "布局",
+  "tags": [
+    "布局",
+    "侧栏",
+    "工作台",
+    "响应式",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "财务页面布局容器，提供独立侧栏、顶部栏和主内容插槽。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "FinanceLayout"
+}

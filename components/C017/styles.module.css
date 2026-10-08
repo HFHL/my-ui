@@ -1,0 +1,12 @@
+
+.root { --finance-bg: #f5f5f5; --finance-surface: #fff; --finance-ink: #11181c; --finance-muted: #71717a; --finance-border: #dedee0; --finance-accent: #0485f7; --finance-up: #17c964; --finance-down: #f31260; color: var(--finance-ink); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 1.5; }
+.root, .root * { box-sizing: border-box; }
+.root button, .root input, .root select { font: inherit; }
+.root button { cursor: pointer; }
+.root button:disabled { opacity: .45; cursor: not-allowed; }
+.root button:focus-visible, .root input:focus-visible, .root select:focus-visible { outline: 2px solid var(--finance-accent); outline-offset: 3px; }
+.icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.icon svg { display: block; width: 16px; height: 16px; }
+
+.card{width:100%;}.card header{display:flex;align-items:center;gap:8px;padding:8px;margin-bottom:12px;}.card h3{margin:0;font-size:16px;font-weight:600;}.card header>span{font-size:12px;padding:2px 7px;border-radius:999px;background:#ededf0;}.scroll{overflow:auto;border-radius:12px;background:var(--finance-surface);}.scroll table{width:100%;min-width:760px;border-collapse:collapse;}.scroll th{text-align:left;font-size:12px;font-weight:500;color:var(--finance-muted);padding:12px 16px;border-bottom:1px solid #ececef;}.scroll th button{border:0;background:transparent;color:inherit;padding:0;}.scroll td{padding:14px 16px;border-bottom:1px solid #f0f0f2;font-size:13px;}.scroll tr:hover td{background:#fafafa;}.scroll small{display:block;color:var(--finance-muted);font-size:12px;}.hash{border:0;background:transparent;color:var(--finance-accent);padding:0;}.type,.asset{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}.avatar{width:24px;height:24px;display:inline-grid;place-items:center;border-radius:50%;background:#627eea;color:white;font-size:10px;}.quantity{white-space:nowrap;}.date{white-space:nowrap;font-size:12px !important;color:var(--finance-muted);}.empty{padding:16px;text-align:center;color:var(--finance-muted);}
+

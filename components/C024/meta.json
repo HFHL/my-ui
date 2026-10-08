@@ -1,0 +1,18 @@
+{
+  "id": "C024",
+  "name": "User Profile",
+  "category": "基础",
+  "tags": [
+    "用户资料",
+    "头像",
+    "基础",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "用户资料块，支持缩写头像或图片，以及可选点击回调。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "UserProfile"
+}

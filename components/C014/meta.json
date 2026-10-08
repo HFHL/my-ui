@@ -1,0 +1,18 @@
+{
+  "id": "C014",
+  "name": "Time Range Selector",
+  "category": "导航",
+  "tags": [
+    "周期",
+    "切换",
+    "图表",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "财务图表周期选择器，支持受控值与切换回调。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "TimeRangeSelector"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "C010",
+  "name": "Finance Sidebar",
+  "category": "导航",
+  "tags": [
+    "侧栏",
+    "财务",
+    "导航",
+    "用户资料",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "财务侧栏，包含用户资料、导航分组与账户操作。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "FinanceSidebar"
+}

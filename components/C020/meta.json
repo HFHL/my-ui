@@ -1,0 +1,19 @@
+{
+  "id": "C020",
+  "name": "Action Button",
+  "category": "基础",
+  "tags": [
+    "按钮",
+    "操作",
+    "基础",
+    "财务",
+    "P002",
+    "HeroUI"
+  ],
+  "description": "财务操作按钮，支持原始图标、按钮样式及原生属性。",
+  "createdAt": "2026-10-08",
+  "source": "从 P002 拆分 · HeroUI Finances · https://template-4.heroui.pro/",
+  "license": "遵循 HeroUI 原设计与来源条款；未提供独立开源许可",
+  "originPrototype": "P002",
+  "exportName": "ActionButton"
+}
